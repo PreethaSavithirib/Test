@@ -1,5 +1,5 @@
 ﻿@model OrangeBricks.Web.Controllers.Property.ViewModels.PropertiesViewModel
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Properties For Sale";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,6 +29,16 @@
     <h3>@property.StreetName</h3>
     <p>@property.NumberOfBedrooms bedroom @property.PropertyType</p>
     <p>@property.Description</p>
+    if (property.Offers != null)
+    {
+        foreach (var offer in property.Offers)
+        {
+            if (offer.Status == "Accepted" && offer.OfferedBy==User.Identity.GetUserId())
+            {
+                <div class="row">your offer @offer.Amount has been accepted by Seller.</div>
+            }
+        }
+    }
 
     <a href="@Url.Action("MakeOffer", "Property", new {id = property.Id})" class="btn btn-primary">
         Make Offer

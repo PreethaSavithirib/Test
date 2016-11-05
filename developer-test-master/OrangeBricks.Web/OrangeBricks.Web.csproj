@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -171,6 +172,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\OrangeBricksAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Common\OfferViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Offers\Builders\OffersOnPropertyViewModelBuilder.cs" />
     <Compile Include="Controllers\Offers\Commands\AcceptOfferCommand.cs" />
@@ -226,6 +228,10 @@
     <Compile Include="Migrations\201505101607236_AddFieldsToOffers.cs" />
     <Compile Include="Migrations\201505101607236_AddFieldsToOffers.Designer.cs">
       <DependentUpon>201505101607236_AddFieldsToOffers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611042332575_AddUserId.cs" />
+    <Compile Include="Migrations\201611042332575_AddUserId.Designer.cs">
+      <DependentUpon>201611042332575_AddUserId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -299,7 +305,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505052030221_InitialCreate.resx">
@@ -322,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505101607236_AddFieldsToOffers.resx">
       <DependentUpon>201505101607236_AddFieldsToOffers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611042332575_AddUserId.resx">
+      <DependentUpon>201611042332575_AddUserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
