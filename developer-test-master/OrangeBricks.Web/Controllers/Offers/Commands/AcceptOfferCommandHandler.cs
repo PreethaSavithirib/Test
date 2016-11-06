@@ -18,8 +18,7 @@ namespace OrangeBricks.Web.Controllers.Offers.Commands
 
             offer.UpdatedAt = DateTime.Now;
             offer.Status = OfferStatus.Accepted;
-            offer.OfferedBy = command.OfferedBy;
-
+           
             _context.SaveChanges();
         }
     }
